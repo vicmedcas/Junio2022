@@ -5,7 +5,7 @@ on:
   
 jobs:
   BUILD:
-    runs-on: ubuntu
+    runs-on: kubuntu
     steps:
       - run: echo "vicmedcas"
 
