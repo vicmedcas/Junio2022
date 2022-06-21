@@ -1,0 +1,31 @@
+name: Pipeline examen
+on:
+  workflow_dispatch:
+  push:
+  
+jobs:
+  BUILD:
+    runs-on: self-hosted
+    steps:
+      - run: echo "vicmedcas"
+
+      - run: |
+          chmod +x gradlew        
+          ./gradlew build
+  PRUEBA:
+    runs-on: self-hosted
+    needs: BUILD
+    steps:
+      - run: echo "vicmedcas"
+      - run: |
+          chmod +x gradlew        
+          ./gradlew test
+
+    Publish:
+    runs-on: self-hosted
+    needs: PRUEBA
+    steps:
+      - run: echo "vicmedcas"
+      - run: |
+          chmod +x gradlew        
+          ./gradlew publish
