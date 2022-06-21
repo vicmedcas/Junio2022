@@ -5,7 +5,7 @@ on:
   
 jobs:
   BUILD:
-    runs-on: kubuntu
+    runs-on: self-hosted
     steps:
       - run: echo "vicmedcas"
 
@@ -13,10 +13,12 @@ jobs:
           chmod +x gradlew        
           ./gradlew build
   PRUEBA:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: BUILD
     steps:
       - run: echo "vicmedcas"
       - run: |
           chmod +x gradlew        
           ./gradlew test
+          
+  
