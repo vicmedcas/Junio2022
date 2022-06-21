@@ -1,0 +1,22 @@
+name: Pipeline examen
+on:
+  workflow_dispatch:
+  push:
+  
+jobs:
+  BUILD:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "vicmedcas"
+
+      - run: |
+          chmod +x gradlew        
+          ./gradlew build
+  PRUEBA:
+    runs-on: ubuntu-latest
+    needs: BUILD
+    steps:
+      - run: echo "vicmedcas"
+      - run: |
+          chmod +x gradlew        
+          ./gradlew test
