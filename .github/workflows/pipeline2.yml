@@ -2,6 +2,10 @@ name: Pipeline examen
 on:
   workflow_dispatch:
   push:
+    branches:  [vicmedcas]
+
+  pull_request:
+    types: [closed]
   
 jobs:
   BUILD:
